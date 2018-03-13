@@ -1,0 +1,12 @@
+[Unit]
+Description=Bcoin
+
+[Service]
+Environment=NODE_ENV=production
+ExecStart=/home/pi/.nvm/versions/node/v9.8.0/bin/bcoin --prefix /mnt/usbstorage/bcoin_testnet --network testnet --index-tx --index-address --api-key somepassword --http-host=0.0.0.0 --persistent-mempool
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+# sudo ln -s $(which node) /usr/bin/node

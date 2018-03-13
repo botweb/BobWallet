@@ -1,0 +1,16 @@
+.DS_Store
+/app
+/tests
+node_modules
+hostname1
+hostname2
+/other
+/.github
+/bcoin
+/bcoin_testnet
+/logs
+/scripts
+/index.html
+/config.json
+/.eslintignore
+/.eslintrc

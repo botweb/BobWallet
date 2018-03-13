@@ -1,0 +1,13 @@
+{
+  "USE_BCOIN": true,
+  "BCOIN_URI": "localhost:18332",
+  "BCOIN_APIKEY": "somepassword",
+  "LOG_TO_FILE": true,
+  "MIN_POOL": 2,
+  "MAX_POOL": 1000,
+  "SERVE_STATIC_APP": true,
+  "RSA_KEY_SIZE": 1024,
+  "CHAIN": "testnet",
+  "FEE_PER_INPUT": 10000,
+  "OUTPUT_SAT": 100000
+}
