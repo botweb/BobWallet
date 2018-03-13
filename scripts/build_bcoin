@@ -1,0 +1,16 @@
+#!/bin/bash
+
+git clone https://github.com/bcoin-org/bcoin.git
+
+cd bcoin
+
+npm install
+
+# https://github.com/bcoin-org/bcoin/issues/411
+
+npm run webpack-browser
+
+cp ./browser/bcoin.js ../app/public/bcoin.js
+cp ./browser/bcoin-worker.js ../app/public/bcoin-worker.js
+
+cd ..

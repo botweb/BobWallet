@@ -1,0 +1,11 @@
+.DS_Store
+/other
+node_modules
+/dist
+/hostname1
+/hostname2
+yarn.lock
+/config.json
+/bcoin
+/bcoin_testnet
+/logs

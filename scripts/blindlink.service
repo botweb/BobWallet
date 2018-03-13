@@ -1,0 +1,23 @@
+[Unit]
+Description=BlindLink
+After=network.target
+
+[Service]
+Type=simple
+Environment=NODE_ENV=production
+WorkingDirectory=/home/pi/blindlink
+ExecStart=/home/pi/.nvm/versions/node/v9.8.0/bin/node /home/pi/blindlink/server/server.js
+
+User=nobody
+Group=nogroup
+LimitNOFILE=infinity
+LimitCORE=infinity
+StandardInput=null
+StandardOutput=syslog
+StandardError=syslog
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+# sudo chown nobody:nogroup ./logs

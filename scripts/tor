@@ -1,0 +1,34 @@
+#!/bin/bash
+
+sudo apt-get update
+sudo apt-get -y install tor
+sudo systemctl enable tor
+
+sudo mkdir /var/lib/tor/hidden_service1
+sudo mkdir /var/lib/tor/hidden_service2
+sudo chmod 700 /var/lib/tor/hidden_service1
+sudo chmod 700 /var/lib/tor/hidden_service2
+sudo chown -R debian-tor:debian-tor /var/lib/tor/hidden_service1
+sudo chown -R debian-tor:debian-tor /var/lib/tor/hidden_service2
+
+echo "" | sudo tee -a /etc/tor/torrc
+echo "HiddenServiceDir /var/lib/tor/hidden_service1/" | sudo tee -a /etc/tor/torrc
+echo "HiddenServicePort 80 127.0.0.1:8081" | sudo tee -a /etc/tor/torrc
+echo "" | sudo tee -a /etc/tor/torrc
+echo "HiddenServiceDir /var/lib/tor/hidden_service2/" | sudo tee -a /etc/tor/torrc
+echo "HiddenServicePort 80 127.0.0.1:8082" | sudo tee -a /etc/tor/torrc
+
+sudo systemctl restart tor
+
+sleep 5
+
+sudo cat /var/lib/tor/hidden_service1/hostname > ./hostname1
+sudo cat /var/lib/tor/hidden_service2/hostname > ./hostname2
+
+# sudo vi /etc/tor/torrc
+
+# HiddenServiceDir /var/lib/tor/hidden_service1/
+# HiddenServicePort 80 127.0.0.1:8081
+#
+# HiddenServiceDir /var/lib/tor/hidden_service2/
+# HiddenServicePort 80 127.0.0.1:8082
