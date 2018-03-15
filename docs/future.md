@@ -1,5 +1,4 @@
 # Future Features
-* Add Bitcoin Cash (BCH) support
 * Round blame game
 * Improve fee calculations
 * Client runs SPV client for balance checking on Public Wallet?
